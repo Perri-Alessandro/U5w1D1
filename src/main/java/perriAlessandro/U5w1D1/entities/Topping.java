@@ -4,20 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
-public class Topping {
-    private List<String> topping;
+public class Topping extends Item {
+    private String nome;
 
-    public Topping() {
-        this.topping = new ArrayList<>();
+    public Topping(String nome, double prezzo, long calorie) {
+        super(prezzo, calorie);
+        this.nome = nome;
     }
 
-    public void aggiungiIngrediente(String ingrediente) {
-        topping.add(ingrediente);
-    }
 }

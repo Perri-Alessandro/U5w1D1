@@ -4,39 +4,21 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @Getter
 @Setter
 @ToString
-public class Pizza extends Menù {
+public class Pizza extends Item {
 
-    public Map<String, Topping> pizze;
+    public List<Topping> toppingList;
+    public boolean isXl = false;
+    private String nome;
 
-    public boolean xl;
-
-    public Pizza(double prezzo, long calorie) {
+    public Pizza(String nome, double prezzo, List<Topping> toppingList, long calorie, boolean isXl) {
         super(prezzo, calorie);
-        this.pizze = new HashMap<>();
-
-        Topping margherita = new Topping();
-        margherita.aggiungiIngrediente("Pomodoro");
-        margherita.aggiungiIngrediente("Mozzarella");
-        pizze.put("Margherita", margherita);
-    }
-
-    public Pizza(double prezzo, long calorie, boolean xl) {
-        super(prezzo, calorie);
-        this.pizze = new HashMap<>();
-        this.xl = xl;
-    }
-
-    public void addPizza(String nome, Topping topping) {
-        pizze.put(nome, topping);
-    }
-
-    public Topping getToppingName(String nomePizza) {
-        return pizze.get(nomePizza);
+        this.nome = nome;
+        this.toppingList = toppingList;
+        this.isXl = isXl;
     }
 }

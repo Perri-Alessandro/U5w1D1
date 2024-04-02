@@ -4,22 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
-public class Bevande extends Menù {
+public class Bevande extends Item {
 
-    public List<String> cocktail;
+    public String nome;
 
-    public Bevande(double prezzo, long calorie) {
+    public Bevande(String nome, double prezzo, long calorie) {
         super(prezzo, calorie);
-        this.cocktail = new ArrayList<>();
+        this.nome = nome;
     }
-
-    public void aggiungiCocktail(String nomeCocktail) {
-        this.cocktail.add(nomeCocktail);
-    }
+    
 }
