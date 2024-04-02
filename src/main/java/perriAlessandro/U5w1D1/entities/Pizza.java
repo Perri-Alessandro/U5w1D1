@@ -12,19 +12,31 @@ import java.util.Map;
 @ToString
 public class Pizza extends Menù {
 
-    public Map<String, String> pizze;
+    public Map<String, Topping> pizze;
 
-    public Pizza(long id, double prezzo, long calorie) {
-        super(id, prezzo, calorie);
+    public boolean xl;
+
+    public Pizza(double prezzo, long calorie) {
+        super(prezzo, calorie);
         this.pizze = new HashMap<>();
-        this.pizze.put("Margherita", "Pomodoro, Mozzarella");
+
+        Topping margherita = new Topping();
+        margherita.aggiungiIngrediente("Pomodoro");
+        margherita.aggiungiIngrediente("Mozzarella");
+        pizze.put("Margherita", margherita);
     }
 
-    public void addPizza(String nome, String ingredienti) {
-        pizze.put(nome, ingredienti);
+    public Pizza(double prezzo, long calorie, boolean xl) {
+        super(prezzo, calorie);
+        this.pizze = new HashMap<>();
+        this.xl = xl;
     }
 
-    public String getIngredientiPerNome(String nomePizza) {
+    public void addPizza(String nome, Topping topping) {
+        pizze.put(nome, topping);
+    }
+
+    public Topping getToppingName(String nomePizza) {
         return pizze.get(nomePizza);
     }
 }

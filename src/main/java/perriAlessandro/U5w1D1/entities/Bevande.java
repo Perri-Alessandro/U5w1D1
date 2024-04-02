@@ -14,8 +14,8 @@ public class Bevande extends Menù {
 
     public List<String> cocktail;
 
-    public Bevande(long id, double prezzo, long calorie) {
-        super(id, prezzo, calorie);
+    public Bevande(double prezzo, long calorie) {
+        super(prezzo, calorie);
         this.cocktail = new ArrayList<>();
     }
 
